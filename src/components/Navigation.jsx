@@ -3,6 +3,11 @@ import MenuLink from './MenuLink';
 import FindAStore from './FindAStore';
 import { useState } from 'react';
 import styled from 'styled-components';
+import { useSelector } from 'react-redux';
+import { selectUser } from '../redux/features/userSlice';
+import SignInButton from './SignInButton';
+import SignUpButton from './SignUpButton';
+import SignOutButton from './SignOutButton';
 
 const variants = {
    open: {
@@ -32,6 +37,7 @@ const variants2 = {
 
 export const Navigation = ({ toggle }) => {
    const [showMenuCategories, setShowMenuCategories] = useState(false);
+   const user = useSelector(selectUser);
 
    return (
       <>
@@ -86,7 +92,16 @@ export const Navigation = ({ toggle }) => {
                <MenuLink link="Rewards" />
                <MenuLink link="Gift Cards" />
                <DividerMotion variants={variants2} />
-               <NavigationButtons variants={variants2}></NavigationButtons>
+               <NavigationButtons variants={variants2}>
+                  {!user ? (
+                     <>
+                        <SignInButton />
+                        <SignUpButton />
+                     </>
+                  ) : (
+                     <SignOutButton />
+                  )}
+               </NavigationButtons>
                <WrapperMotion variants={variants2}>
                   <FindAStore />
                </WrapperMotion>

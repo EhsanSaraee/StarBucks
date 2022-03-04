@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom';
 import App from './App';
-import { store } from './app/store';
 import { Provider } from 'react-redux';
+import { store } from './redux/app/store';
 
 const rootElement = document.getElementById('root');
 
