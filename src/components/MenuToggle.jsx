@@ -1,8 +1,8 @@
-import * as React from 'react';
 import { motion } from 'framer-motion';
+import styled from 'styled-components';
 
 const Path = (props) => (
-   <motion.path
+   <PathMotion
       fill="transparent"
       strokeWidth="3"
       stroke="hsl(0, 0%, 18%)"
@@ -12,7 +12,7 @@ const Path = (props) => (
 );
 
 export const MenuToggle = ({ toggle }) => (
-   <button onClick={toggle} className="menuToggle__button">
+   <MenuToggleButton onClick={toggle}>
       <svg width="23" height="23" viewBox="0 0 23 23">
          <Path
             variants={{
@@ -35,5 +35,9 @@ export const MenuToggle = ({ toggle }) => (
             }}
          />
       </svg>
-   </button>
+   </MenuToggleButton>
 );
+
+const PathMotion = styled(motion.path)``;
+
+const MenuToggleButton = styled.button``;

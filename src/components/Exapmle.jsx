@@ -1,9 +1,9 @@
-import * as React from 'react';
 import { useRef } from 'react';
 import { motion, useCycle } from 'framer-motion';
 import { useDimensions } from './use-dimensions';
 import { MenuToggle } from './MenuToggle';
 import { Navigation } from './Navigation';
+import styled from 'styled-components';
 
 const sidebar = {
    open: (height = 1000) => ({
@@ -31,15 +31,19 @@ export const Example = () => {
    const { height } = useDimensions(containerRef);
 
    return (
-      <motion.nav
+      <NavMotion
          initial={false}
          animate={isOpen ? 'open' : 'closed'}
          custom={height}
          ref={containerRef}
       >
-         <motion.div className="background" variants={sidebar} />
+         <BackgroundMotion variants={sidebar} />
          <Navigation toggle={() => toggleOpen()} />
          <MenuToggle toggle={() => toggleOpen()} />
-      </motion.nav>
+      </NavMotion>
    );
 };
+
+const NavMotion = styled(motion.nav)``;
+
+const BackgroundMotion = styled(motion.div)``;
