@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import MenuLink from './MenuLink';
+import { MenuLink } from './MenuLink';
 import FindAStore from './FindAStore';
 import { useState } from 'react';
 import styled from 'styled-components';
