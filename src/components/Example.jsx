@@ -1,9 +1,9 @@
 import { useRef } from 'react';
 import { motion, useCycle } from 'framer-motion';
-import { useDimensions } from './use-dimensions';
 import { MenuToggle } from './MenuToggle';
 import { Navigation } from './Navigation';
 import styled from 'styled-components';
+import { useDimensions } from '../hooks/useDimensions';
 
 const sidebar = {
    open: (height = 1000) => ({
@@ -44,6 +44,28 @@ export const Example = () => {
    );
 };
 
-const NavMotion = styled(motion.nav)``;
+const NavMotion = styled(motion.nav)`
+   position: absolute;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   width: 600px;
+   width: 70vw;
+   display: none;
+   overflow: hidden;
+   z-index: 999;
 
-const BackgroundMotion = styled(motion.div)``;
+   @media (max-width: 768px) {
+      display: inline;
+   }
+`;
+
+const BackgroundMotion = styled(motion.div)`
+   position: absolute;
+   top: 0;
+   left: 0;
+   bottom: 0;
+   width: 600px;
+   background: #fff;
+   z-index: 1;
+`;

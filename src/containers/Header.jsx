@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { Example } from '../components/Example';
+import FindAStore from '../components/FindAStore';
 
 const Header = () => {
    return (
@@ -15,7 +17,10 @@ const Header = () => {
             <HeaderLink to="/menu">Rewards</HeaderLink>
             <HeaderLink to="/menu">Gift Cards</HeaderLink>
          </HeaderLeft>
-         <HeaderRight></HeaderRight>
+         <HeaderRight>
+            <Example />
+            <FindAStore />
+         </HeaderRight>
       </HeaderContainer>
    );
 };

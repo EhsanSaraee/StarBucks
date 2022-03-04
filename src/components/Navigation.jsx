@@ -1,11 +1,6 @@
 import { motion } from 'framer-motion';
-import { MenuLink } from './MenuLink';
-import SignInButton from './SignInButton';
-import SignUpButton from './SignUpButton';
+import MenuLink from './MenuLink';
 import FindAStore from './FindAStore';
-import { useSelector } from 'react-redux';
-import { selectUser } from './features/userSlice';
-import LogoutButton from './LogoutButton';
 import { useState } from 'react';
 import styled from 'styled-components';
 
@@ -36,7 +31,6 @@ const variants2 = {
 };
 
 export const Navigation = ({ toggle }) => {
-   const user = useSelector(selectUser);
    const [showMenuCategories, setShowMenuCategories] = useState(false);
 
    return (
@@ -92,16 +86,7 @@ export const Navigation = ({ toggle }) => {
                <MenuLink link="Rewards" />
                <MenuLink link="Gift Cards" />
                <DividerMotion variants={variants2} />
-               <NavigationButtons variants={variants2}>
-                  {!user ? (
-                     <>
-                        <SignInButton />
-                        <SignUpButton />
-                     </>
-                  ) : (
-                     <LogoutButton />
-                  )}
-               </NavigationButtons>
+               <NavigationButtons variants={variants2}></NavigationButtons>
                <WrapperMotion variants={variants2}>
                   <FindAStore />
                </WrapperMotion>
@@ -111,10 +96,27 @@ export const Navigation = ({ toggle }) => {
    );
 };
 
-const ListMotion = styled(motion.ul)``;
+const ListMotion = styled(motion.ul)`
+   padding: 25px;
+   position: absolute;
+   top: 100px;
+   width: 60vw;
+   z-index: 2;
+   margin: 0;
+   padding: 0;
+`;
 
-const DividerMotion = styled(motion.hr)``;
+const DividerMotion = styled(motion.hr)`
+   margin-bottom: 30px;
+   background-color: rgba(0, 0, 0, 0.1);
+   height: 2px;
+   border: none;
+`;
 
-const NavigationButtons = styled(motion.div)``;
+const NavigationButtons = styled(motion.div)`
+   display: flex;
+   gap: 20px;
+   margin-bottom: 20px;
+`;
 
 const WrapperMotion = styled(motion.div)``;

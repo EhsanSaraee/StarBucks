@@ -40,4 +40,20 @@ export const MenuToggle = ({ toggle }) => (
 
 const PathMotion = styled(motion.path)``;
 
-const MenuToggleButton = styled.button``;
+const MenuToggleButton = styled.button`
+   outline: none;
+   border: none;
+   user-select: none;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   cursor: pointer;
+   position: absolute;
+   top: 28px;
+   right: 15px;
+   width: 50px;
+   height: 50px;
+   border-radius: 50%;
+   background: transparent;
+   z-index: 2;
+`;
