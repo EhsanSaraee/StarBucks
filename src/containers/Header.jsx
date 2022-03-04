@@ -32,7 +32,7 @@ const Header = ({ menuPage }) => {
                   <Link to="/account/sign-in">
                      <SignInButton />
                   </Link>
-                  <Link to="/account/sign-in">
+                  <Link to="/account/sign-up">
                      <SignUpButton />
                   </Link>
                </>
