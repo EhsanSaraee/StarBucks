@@ -111,6 +111,10 @@ const FeaturedHoverLight = styled(Featured)`
    }
 `;
 
-const InfoHoverLight = styled(Info)``;
+const InfoHoverLight = styled(Info)`
+   &:hover {
+      background-color: rgba(30, 57, 50, 0.1);
+   }
+`;
 
 export default Home;
