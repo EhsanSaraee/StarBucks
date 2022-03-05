@@ -6,4 +6,12 @@ export const GlobalStyles = createGlobalStyle`
     margin: 0;
     box-sizing: border-box;
   }
+
+  html {
+    overflow: hidden;
+  }
+
+  body {
+    font-family: 'Open Sans', sans-serif;
+  }
 `;

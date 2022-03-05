@@ -1,25 +1,25 @@
 import { Link } from 'react-router-dom';
-import Heading from '../Heading';
-import Info from '../Info';
+import Heading from '../components/Heading';
+import Info from '../components/Info';
 import { Fade } from 'react-awesome-reveal';
 import styled from 'styled-components';
-import Featured from './Featured';
+import Featured from './FeaturedSection';
 
-const HomeScreen = () => {
+const Home = () => {
    return (
-      <HomeScreenContainer>
+      <HomeContainer>
          <Fade>
-            <HomeScreenTop>
+            <HomeTop>
                <h4>
                   We’re working hard to put the health and well-being of our
                   partners and customers first in all that we do.{' '}
                   <Link>Learn more</Link>
                </h4>
-            </HomeScreenTop>
+            </HomeTop>
          </Fade>
          <Fade>
-            <HomeScreenBottom>
-               <HomeScreenBottomLeft>
+            <HomeBottom>
+               <HomeBottomLeft>
                   <h4>Investing in our communities</h4>
                   <p>
                      The Starbucks Foundation awarded grants to over 400
@@ -27,19 +27,19 @@ const HomeScreen = () => {
                      nominated by Starbucks partners (employees).
                   </p>
                   <button>Learn more</button>
-               </HomeScreenBottomLeft>
-               <HomeScreenBottomRight>
+               </HomeBottomLeft>
+               <HomeBottomRight>
                   <img
                      src="https://content-prod-live.cert.starbucks.com/binary/v2/asset/137-68026.jpg"
                      alt=""
                   />
-               </HomeScreenBottomRight>
-            </HomeScreenBottom>
+               </HomeBottomRight>
+            </HomeBottom>
          </Fade>
          <Fade>
             <Heading heading="TODAY IS YOURS" />
          </Fade>
-         <HomeScreenFeatured>
+         <HomeFeatured>
             <Fade>
                <FeaturedHoverLight
                   title="NICELY NONDAIRY"
@@ -63,12 +63,12 @@ const HomeScreen = () => {
                   color="#1e3932"
                />
             </Fade>
-         </HomeScreenFeatured>
+         </HomeFeatured>
          <Fade>
             <Heading heading="MORE TO DISCOVER" />
          </Fade>
          <Fade>
-            <HomeScreenDiscover>
+            <HomeDiscover>
                <InfoHoverLight
                   title="Order and pick up. Easy as that."
                   image="https://content-prod-live.cert.starbucks.com/binary/v2/asset/137-67828.jpg"
@@ -85,28 +85,32 @@ const HomeScreen = () => {
                   color="#1e3932"
                   background="#d4e9e4"
                />
-            </HomeScreenDiscover>
+            </HomeDiscover>
          </Fade>
-      </HomeScreenContainer>
+      </HomeContainer>
    );
 };
 
-const HomeScreenContainer = styled.section``;
+const HomeContainer = styled.section``;
 
-const HomeScreenTop = styled.div``;
+const HomeTop = styled.div``;
 
-const HomeScreenBottom = styled.div``;
+const HomeBottom = styled.div``;
 
-const HomeScreenBottomLeft = styled.div``;
+const HomeBottomLeft = styled.div``;
 
-const HomeScreenBottomRight = styled.div``;
+const HomeBottomRight = styled.div``;
 
-const HomeScreenFeatured = styled.div``;
+const HomeFeatured = styled.div``;
 
-const HomeScreenDiscover = styled.div``;
+const HomeDiscover = styled.div``;
 
-const FeaturedHoverLight = styled(Featured)``;
+const FeaturedHoverLight = styled(Featured)`
+   &:hover {
+      background-color: rgba(30, 57, 50, 0.9);
+   }
+`;
 
 const InfoHoverLight = styled(Info)``;
 
-export default HomeScreen;
+export default Home;
