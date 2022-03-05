@@ -1,6 +1,6 @@
 import { Fade } from 'react-awesome-reveal';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Footer from './containers/FooterSection';
+import { Footer } from './containers/FooterSection';
 import Header from './containers/HeaderSection';
 import Home from './containers/HomeSection';
 import { GlobalStyles } from './globalStyles';
