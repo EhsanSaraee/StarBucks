@@ -1,15 +1,34 @@
+import { useEffect } from 'react';
 import { Fade } from 'react-awesome-reveal';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import { Footer } from './containers/FooterSection';
 import Header from './containers/HeaderSection';
 import Home from './containers/HomeSection';
 import Login from './containers/LoginSection';
+import { auth } from './firebase';
 import { GlobalStyles } from './globalStyles';
-import { selectUser } from './redux/features/userSlice';
+import { login, logout, selectUser } from './redux/features/userSlice';
 
 const App = () => {
    const user = useSelector(selectUser);
+   const dispatch = useDispatch();
+
+   useEffect(() => {
+      auth.onAuthStateChanged((userAuth) => {
+         if (userAuth) {
+            dispatch(
+               login({
+                  email: userAuth.user.email,
+                  password: userAuth.user.password,
+                  displayName: userAuth.user.displayName,
+               })
+            );
+         } else {
+            dispatch(logout());
+         }
+      });
+   }, [dispatch]);
 
    return (
       <BrowserRouter>

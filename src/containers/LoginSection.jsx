@@ -9,12 +9,32 @@ import VisibilityOffOutlinedIcon from '@material-ui/icons/VisibilityOffOutlined'
 import VisibilityOutlinedIcon from '@material-ui/icons/VisibilityOutlined';
 import FormSubmit from '../components/FormSubmit';
 import FooterSecondary from '../components/FooterSecondary';
+import { auth } from '../firebase';
+import { useDispatch } from 'react-redux';
+import { login } from '../redux/features/userSlice';
 
 const Login = () => {
    const { register, handleSubmit, errors } = useForm();
    const [passwordShown, setPasswordShown] = useState(false);
+   const dispatch = useDispatch();
 
-   const onSubmit = ({ email, password }) => {};
+   const onSubmit = async ({ email, password }) => {
+      try {
+         const userAuth = await auth.signInWithEmailAndPassword(
+            email,
+            password
+         );
+         dispatch(
+            login({
+               email: userAuth.user.email,
+               password: userAuth.user.password,
+               displayName: userAuth.user.displayName,
+            })
+         );
+      } catch (error) {
+         alert(error.message);
+      }
+   };
 
    return (
       <LoginContainer>
@@ -22,7 +42,7 @@ const Login = () => {
             <Link to="/">
                <img
                   src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/Starbucks_Corporation_Logo_2011.svg/1200px-Starbucks_Corporation_Logo_2011.svg.png"
-                  alt=""
+                  alt="login"
                />
             </Link>
             <LoginInfo>
