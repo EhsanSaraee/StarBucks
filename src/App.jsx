@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Fade } from 'react-awesome-reveal';
 import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
+import styled from 'styled-components';
 import { Footer } from './containers/FooterSection';
 import Header from './containers/HeaderSection';
 import Home from './containers/HomeSection';
@@ -32,25 +33,31 @@ const App = () => {
    }, [dispatch]);
 
    return (
-      <BrowserRouter>
-         <GlobalStyles />
-         <Switch>
-            <Route exact path="/">
-               <Header />
-               <Home />
-               <Fade>
-                  <Footer />
-               </Fade>
-            </Route>
-            <Route exact path="/account/sign-in">
-               {user ? <Redirect to="/menu" /> : <Login />}
-            </Route>
-            <Route exact path="/account/sign-up">
-               {user ? <Redirect to="/menu" /> : <Register />}
-            </Route>
-         </Switch>
-      </BrowserRouter>
+      <AppContainer>
+         <BrowserRouter>
+            <GlobalStyles />
+            <Switch>
+               <Route exact path="/">
+                  <Header />
+                  <Home />
+                  <Fade>
+                     <Footer />
+                  </Fade>
+               </Route>
+               <Route exact path="/account/sign-in">
+                  {user ? <Redirect to="/menu" /> : <Login />}
+               </Route>
+               <Route exact path="/account/sign-up">
+                  {user ? <Redirect to="/menu" /> : <Register />}
+               </Route>
+            </Switch>
+         </BrowserRouter>
+      </AppContainer>
    );
 };
+
+const AppContainer = styled.section`
+   overflow: hidden;
+`;
 
 export default App;

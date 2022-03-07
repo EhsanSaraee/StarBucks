@@ -240,7 +240,7 @@ const LoginError = styled.div`
 const LoginResetLinks = styled.div`
    margin-top: 20px;
 
-   > a {
+   a {
       display: block;
       margin-bottom: 15px;
       text-decoration: underline;

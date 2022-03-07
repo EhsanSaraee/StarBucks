@@ -30,6 +30,7 @@ const SignUpForm = () => {
                      InputProps={{ style: { fontWeight: '800' } }}
                      className="signupForm__input"
                      inputRef={register({ required: true })}
+                     style={{ width: '100%' }}
                   />
                   {errors.fName && (
                      <SignUpFormError>
@@ -54,6 +55,7 @@ const SignUpForm = () => {
                      InputProps={{ style: { fontWeight: '800' } }}
                      className="signupForm__input"
                      inputRef={register({ required: true })}
+                     style={{ width: '100%' }}
                   />
                   {errors.lName && (
                      <SignUpFormError>
@@ -78,6 +80,7 @@ const SignUpForm = () => {
                      InputProps={{ style: { fontWeight: '800' } }}
                      className="signupForm__input"
                      inputRef={register({ required: true })}
+                     style={{ width: '100%' }}
                   />
                   {errors.email && (
                      <SignUpFormError>
@@ -102,6 +105,7 @@ const SignUpForm = () => {
                      InputProps={{ style: { fontWeight: '800' } }}
                      className="signupForm__input"
                      inputRef={register({ required: true })}
+                     style={{ width: '100%' }}
                   />
                   {passwordShown ? (
                      <VisibilityOutlinedIcon
@@ -139,20 +143,99 @@ const SignUpForm = () => {
    );
 };
 
-const SignUpFormWrapper = styled.section``;
+const SignUpFormWrapper = styled.section`
+   display: flex;
+   flex-direction: column;
+   box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.1), 0 4px 5px 0 rgba(0, 0, 0, 0.06),
+      0 2px 4px 0 rgba(0, 0, 0, 0.07);
+   border-radius: 12px;
+   max-width: 500px;
+   height: 700px;
+   margin-bottom: 20px;
 
-const SignUpFormContainer = styled.div``;
+   @media (max-width: 425px) {
+      box-shadow: none;
+      height: 500px;
+   }
+`;
 
-const SignUpFormForm = styled.form``;
+const SignUpFormContainer = styled.div`
+   padding: 56px;
 
-const SignUpFormSection = styled.h4``;
+   @media (max-width: 425px) {
+      padding: 0 20px;
+   }
+`;
 
-const SignUpFormInputContainer = styled.div``;
+const SignUpFormForm = styled.form`
+   position: relative;
+   width: 100%;
 
-const SignUpFormError = styled.div``;
+   button {
+      margin-top: 50px;
+      position: absolute;
+      right: 0;
+   }
+`;
 
-const SignUpFormRewards = styled.h4``;
+const SignUpFormSection = styled.h4`
+   color: rgba(0, 0, 0, 0.87);
+   font-size: 19px;
+   margin-bottom: 8px;
 
-const SignUpFormSpan = styled.span``;
+   &:nth-of-type(2) {
+      margin-top: 48px;
+   }
+
+   @media (max-width: 425px) {
+      font-size: 16px;
+   }
+`;
+
+const SignUpFormInputContainer = styled.div`
+   position: relative;
+   margin-bottom: 8px;
+
+   .MuiSvgIcon-root {
+      cursor: pointer;
+      color: grey;
+      position: absolute;
+      right: 10%;
+      top: 0;
+      transform: translateY(80%);
+   }
+`;
+
+const SignUpFormError = styled.div`
+   margin-top: 5px;
+   display: flex;
+   align-items: center;
+   gap: 5px;
+   font-size: smaller;
+
+   .MuiSvgIcon-root {
+      color: #e75b52;
+   }
+`;
+
+const SignUpFormRewards = styled.h4`
+   color: rgba(0, 0, 0, 0.56);
+   font-size: 14px;
+   margin: 24px 0;
+
+   @media (max-width: 425px) {
+      font-size: 13px;
+   }
+`;
+
+const SignUpFormSpan = styled.span`
+   color: rgba(0, 0, 0, 0.87);
+   font-weight: 600;
+   line-height: 1.5;
+
+   @media (max-width: 425px) {
+      font-size: 14px;
+   }
+`;
 
 export default SignUpForm;
