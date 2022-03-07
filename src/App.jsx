@@ -6,6 +6,7 @@ import { Footer } from './containers/FooterSection';
 import Header from './containers/HeaderSection';
 import Home from './containers/HomeSection';
 import Login from './containers/LoginSection';
+import Register from './containers/RegisterSection';
 import { auth } from './firebase';
 import { GlobalStyles } from './globalStyles';
 import { login, logout, selectUser } from './redux/features/userSlice';
@@ -43,6 +44,9 @@ const App = () => {
             </Route>
             <Route exact path="/account/sign-in">
                {user ? <Redirect to="/menu" /> : <Login />}
+            </Route>
+            <Route exact path="/account/sign-up">
+               {user ? <Redirect to="/menu" /> : <Register />}
             </Route>
          </Switch>
       </BrowserRouter>

@@ -149,7 +149,7 @@ const LoginLeft = styled.div`
       img {
          object-fit: contain;
          height: 50px;
-         padding-top: 30px;
+         padding-top: 10px;
          padding-left: 40px;
       }
    }
