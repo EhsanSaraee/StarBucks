@@ -27,7 +27,7 @@ const Login = () => {
          dispatch(
             login({
                email: userAuth.user.email,
-               password: userAuth.user.password,
+               uid: userAuth.user.uid,
                displayName: userAuth.user.displayName,
             })
          );

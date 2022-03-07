@@ -7,12 +7,38 @@ import { TextField } from '@material-ui/core';
 import { useForm } from 'react-hook-form';
 import FormSubmit from './FormSubmit';
 import styled from 'styled-components';
+import { auth } from '../firebase';
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import { login } from '../redux/features/userSlice';
 
 const SignUpForm = () => {
    const { register, handleSubmit, errors } = useForm();
    const [passwordShown, setPasswordShown] = useState(false);
+   const dispatch = useDispatch();
+   const history = useHistory();
 
-   const onSubmit = async ({ fName, lName, email, password }) => {};
+   const onSubmit = async ({ fName, lName, email, password }) => {
+      try {
+         const userAuth = await auth.createUserWithEmailAndPassword(
+            email,
+            password
+         );
+         await userAuth.user.updateProfile({
+            displayName: fName,
+         });
+         dispatch(
+            login({
+               email: userAuth.user.email,
+               uid: userAuth.user.uid,
+               displayName: fName,
+            })
+         );
+         history.replace('/menu');
+      } catch (error) {
+         alert(error.message);
+      }
+   };
 
    return (
       <SignUpFormWrapper>
