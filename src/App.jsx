@@ -7,6 +7,7 @@ import { Footer } from './containers/FooterSection';
 import Header from './containers/HeaderSection';
 import Home from './containers/HomeSection';
 import Login from './containers/LoginSection';
+import MenuSection from './containers/MenuSection';
 import Register from './containers/RegisterSection';
 import { auth } from './firebase';
 import { GlobalStyles } from './globalStyles';
@@ -49,6 +50,16 @@ const App = () => {
                </Route>
                <Route exact path="/account/sign-up">
                   {user ? <Redirect to="/menu" /> : <Register />}
+               </Route>
+               <Route exact path="/menu">
+                  {!user ? (
+                     <Redirect to="/account/sign-in" />
+                  ) : (
+                     <>
+                        <Header menuPage />
+                        <MenuSection />
+                     </>
+                  )}
                </Route>
             </Switch>
          </BrowserRouter>
