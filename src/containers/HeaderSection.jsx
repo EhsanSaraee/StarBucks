@@ -8,11 +8,11 @@ import SignInButton from '../components/SignInButton';
 import SignUpButton from '../components/SignUpButton';
 import SignOutButton from '../components/SignOutButton';
 
-const Header = ({ menuPage }) => {
+const HeaderSection = ({ menuPage }) => {
    const user = useSelector(selectUser);
 
    return (
-      <HeaderContainer menuPage={menuPage}>
+      <HeaderContainer menuPage>
          <HeaderLeft>
             <HeaderLogo to="/">
                <img
@@ -61,14 +61,14 @@ const CSSLink = css`
 `;
 
 const HeaderContainer = styled.section`
-   /* width: ${(menuPage) => (menuPage ? '95%' : null)};
+   width: ${(menuPage) => (menuPage ? '95%' : null)};
    position: ${(menuPage) => (menuPage ? 'fixed' : null)};
    top: ${(menuPage) => (menuPage ? '0' : null)};
    left: ${(menuPage) => (menuPage ? '0' : null)};
 
    @media (max-width: 768px) {
       position: ${(menuPage) => (menuPage ? 'inherit' : null)};
-   } */
+   }
 
    height: 101px;
    display: flex;
@@ -81,17 +81,6 @@ const HeaderContainer = styled.section`
    z-index: 2;
    background-color: white;
 `;
-
-// const HeaderMenuPage = styled.div`
-//    position: fixed;
-//    top: 0;
-//    left: 0;
-//    width: 95%;
-
-//    @media (max-width: 768px) {
-//       position: inherit;
-//    }
-// `;
 
 const HeaderLeft = styled.div`
    display: flex;
@@ -153,4 +142,4 @@ const HeaderLogout = styled.div`
    }
 `;
 
-export default Header;
+export default HeaderSection;

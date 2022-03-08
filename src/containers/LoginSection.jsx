@@ -13,7 +13,7 @@ import { auth } from '../firebase';
 import { useDispatch } from 'react-redux';
 import { login } from '../redux/features/userSlice';
 
-const Login = () => {
+const LoginSection = () => {
    const { register, handleSubmit, errors } = useForm();
    const [passwordShown, setPasswordShown] = useState(false);
    const dispatch = useDispatch();
@@ -315,4 +315,4 @@ const LoginRegisterWrapper = styled.div`
    }
 `;
 
-export default Login;
+export default LoginSection;

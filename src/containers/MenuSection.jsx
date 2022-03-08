@@ -4,7 +4,7 @@ import MenuHeader from '../components/MenuHeader';
 import MenuList from '../components/MenuList';
 import MenuItem from '../components/MenuItem';
 
-const MenuScreen = () => {
+const MenuSection = () => {
    return (
       <MenuSectionWrapper>
          <MenuHeader />
@@ -138,4 +138,4 @@ const MenuSectionItems = styled.div`
    padding-right: 20px;
 `;
 
-export default MenuScreen;
+export default MenuSection;

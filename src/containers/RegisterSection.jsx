@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import SignUpForm from '../components/SignUpForm';
 import FooterSecondary from '../components/FooterSecondary';
 
-const Register = () => {
+const RegisterSection = () => {
    return (
       <RegisterContainer>
          <RegisterHeader>
@@ -112,4 +112,4 @@ const RegisterRewards = styled.div`
    }
 `;
 
-export default Register;
+export default RegisterSection;

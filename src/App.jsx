@@ -3,7 +3,8 @@ import { Fade } from 'react-awesome-reveal';
 import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import styled from 'styled-components';
-import { Footer } from './containers/FooterSection';
+import FeaturedSection from './containers/FeaturedSection';
+import { FooterSection } from './containers/FooterSection';
 import Header from './containers/HeaderSection';
 import Home from './containers/HomeSection';
 import Login from './containers/LoginSection';
@@ -42,7 +43,7 @@ const App = () => {
                   <Header />
                   <Home />
                   <Fade>
-                     <Footer />
+                     <FooterSection />
                   </Fade>
                </Route>
                <Route exact path="/account/sign-in">
@@ -60,6 +61,13 @@ const App = () => {
                         <MenuSection />
                      </>
                   )}
+               </Route>
+               <Route path="/menu/featured" exact>
+                  <Header />
+                  <FeaturedSection />
+                  <Fade>
+                     <FooterSection />
+                  </Fade>
                </Route>
             </Switch>
          </BrowserRouter>

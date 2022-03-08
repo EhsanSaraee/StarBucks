@@ -5,7 +5,7 @@ import { Fade } from 'react-awesome-reveal';
 import styled from 'styled-components';
 import Featured from '../components/Featured';
 
-const Home = () => {
+const HomeSection = () => {
    return (
       <HomeContainer>
          <Fade>
@@ -98,6 +98,7 @@ const HomeTop = styled.div`
    text-align: center;
    padding: 32px;
    margin-bottom: 20px;
+   margin-top: 101px;
 
    h4 {
       color: #1e3932;
@@ -245,16 +246,16 @@ const HomeDiscover = styled.div`
    }
 `;
 
-const FeaturedHoverLight = styled(Featured)`
+export const FeaturedHoverLight = styled(Featured)`
    &:hover {
       background-color: rgba(30, 57, 50, 0.9);
    }
 `;
 
-const InfoHoverLight = styled(Info)`
+export const InfoHoverLight = styled(Info)`
    &:hover {
       background-color: rgba(30, 57, 50, 0.1);
    }
 `;
 
-export default Home;
+export default HomeSection;

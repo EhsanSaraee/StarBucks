@@ -65,7 +65,7 @@ const Accordion = ({
    );
 };
 
-export const Footer = () => {
+export const FooterSection = () => {
    // This approach is if you only want max one section open at a time. If you want multiple
    // sections to potentially be open simultaneously, they can all be given their own `useState`.
    //   const [expanded, setExpanded] = (useState < false) | (1 > 0)
