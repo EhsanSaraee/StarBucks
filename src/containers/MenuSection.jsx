@@ -2,7 +2,7 @@ import menuList from '../menuList.json';
 import styled from 'styled-components';
 import MenuHeader from '../components/MenuHeader';
 import MenuList from '../components/MenuList';
-import MenuSingleItem from '../components/MenuSingleItem';
+import MenuItem from '../components/MenuItem';
 
 const MenuScreen = () => {
    return (
@@ -19,7 +19,7 @@ const MenuScreen = () => {
                   <MenuSectionItems>
                      {menuList?.map((menuListCategory) =>
                         menuListCategory.drinks.map((item) => (
-                           <MenuSingleItem key={item.id} {...item} />
+                           <MenuItem key={item.id} {...item} />
                         ))
                      )}
                   </MenuSectionItems>
@@ -30,7 +30,7 @@ const MenuScreen = () => {
                   <MenuSectionItems>
                      {menuList?.map((menuListCategory) =>
                         menuListCategory.food.map((item) => (
-                           <MenuSingleItem key={item.id} {...item} />
+                           <MenuItem key={item.id} {...item} />
                         ))
                      )}
                   </MenuSectionItems>
@@ -41,7 +41,7 @@ const MenuScreen = () => {
                   <MenuSectionItems>
                      {menuList?.map((menuListCategory) =>
                         menuListCategory.atHomeCoffee.map((item) => (
-                           <MenuSingleItem key={item.id} {...item} />
+                           <MenuItem key={item.id} {...item} />
                         ))
                      )}
                   </MenuSectionItems>
@@ -52,7 +52,7 @@ const MenuScreen = () => {
                   <MenuSectionItems>
                      {menuList?.map((menuListCategory) =>
                         menuListCategory.merchandise.map((item) => (
-                           <MenuSingleItem key={item.id} {...item} />
+                           <MenuItem key={item.id} {...item} />
                         ))
                      )}
                   </MenuSectionItems>
