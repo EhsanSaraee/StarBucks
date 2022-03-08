@@ -11,14 +11,14 @@ function MenuHeader() {
             <MenuHeaderLink
                to="/menu"
                onClick={() => setIndex(0)}
-               style={index === 0 && { borderBottom: '1px solid black' }}
+               style={index === 0 ? { borderBottom: '1px solid black' } : null}
             >
                All products
             </MenuHeaderLink>
             <MenuHeaderLink
                to="/menu/featured"
                onClick={() => setIndex(1)}
-               style={index === 0 && { borderBottom: '1px solid black' }}
+               style={index === 1 ? { borderBottom: '1px solid black' } : null}
             >
                Featured
             </MenuHeaderLink>
@@ -58,6 +58,7 @@ const MenuHeaderLinks = styled.div`
       font-weight: 600;
       font-size: 13px;
       padding-bottom: 5px;
+      text-decoration: none;
    }
 `;
 

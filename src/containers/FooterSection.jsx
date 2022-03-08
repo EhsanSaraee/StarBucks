@@ -72,7 +72,7 @@ export const Footer = () => {
    const [expanded, setExpanded] = useState();
 
    return (
-      <>
+      <AccordionWrapper>
          <Accordion
             expanded={expanded}
             setExpanded={setExpanded}
@@ -128,7 +128,7 @@ export const Footer = () => {
             link4="Order and Pickup Options"
             link5="Explore and Find Coffee for Home"
          />
-      </>
+      </AccordionWrapper>
    );
 };
 
@@ -155,6 +155,7 @@ const AccordionHeader = styled(motion.header)`
       font-weight: 600;
       margin-bottom: 20px;
       margin-top: 20px;
+      text-decoration: none;
 
       @media (max-width: 425px) {
          font-size: 16px;
@@ -172,6 +173,12 @@ const AccordionIcon = styled(motion.div)`
 
 const AccordionSection = styled(motion.section)`
    overflow: hidden;
+`;
+
+const AccordionWrapper = styled.div`
+   a {
+      text-decoration: none;
+   }
 `;
 
 const accordionIds = [0, 1, 2, 3];

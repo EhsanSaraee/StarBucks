@@ -61,14 +61,14 @@ const CSSLink = css`
 `;
 
 const HeaderContainer = styled.section`
-   width: ${(menuPage) => (menuPage ? '95%' : null)};
+   /* width: ${(menuPage) => (menuPage ? '95%' : null)};
    position: ${(menuPage) => (menuPage ? 'fixed' : null)};
    top: ${(menuPage) => (menuPage ? '0' : null)};
    left: ${(menuPage) => (menuPage ? '0' : null)};
 
    @media (max-width: 768px) {
       position: ${(menuPage) => (menuPage ? 'inherit' : null)};
-   }
+   } */
 
    height: 101px;
    display: flex;
