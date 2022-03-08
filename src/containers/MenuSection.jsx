@@ -1,69 +1,69 @@
-import MenuHeader from '../MenuHeader';
-import MenuList from '../MenuList';
-import MenuItem from '../MenuItem';
 import menuList from '../menuList.json';
 import styled from 'styled-components';
+import MenuHeader from '../components/MenuHeader';
+import MenuList from '../components/MenuList';
+import MenuSingleItem from '../components/MenuSingleItem';
 
 const MenuScreen = () => {
    return (
-      <MenuWrapper>
+      <MenuSectionWrapper>
          <MenuHeader />
-         <MenuContainer>
-            <MenuLeft>
+         <MenuSectionContainer>
+            <MenuSectionLeft>
                <MenuList />
-            </MenuLeft>
-            <MenuRight>
+            </MenuSectionLeft>
+            <MenuSectionRight>
                <h1>Menu</h1>
-               <MenuCategory>
+               <MenuSectionCategory>
                   <h2>Drinks</h2>
-                  <MenuItems>
+                  <MenuSectionItems>
                      {menuList?.map((menuListCategory) =>
                         menuListCategory.drinks.map((item) => (
-                           <MenuItem key={item.id} {...item} />
+                           <MenuSingleItem key={item.id} {...item} />
                         ))
                      )}
-                  </MenuItems>
-               </MenuCategory>
+                  </MenuSectionItems>
+               </MenuSectionCategory>
 
-               <MenuCategory>
+               <MenuSectionCategory>
                   <h2>Food</h2>
-                  <MenuItems>
+                  <MenuSectionItems>
                      {menuList?.map((menuListCategory) =>
                         menuListCategory.food.map((item) => (
-                           <MenuItem key={item.id} {...item} />
+                           <MenuSingleItem key={item.id} {...item} />
                         ))
                      )}
-                  </MenuItems>
-               </MenuCategory>
+                  </MenuSectionItems>
+               </MenuSectionCategory>
 
-               <MenuCategory>
+               <MenuSectionCategory>
                   <h2>At Home Coffee</h2>
-                  <MenuItems>
+                  <MenuSectionItems>
                      {menuList?.map((menuListCategory) =>
                         menuListCategory.atHomeCoffee.map((item) => (
-                           <MenuItem key={item.id} {...item} />
+                           <MenuSingleItem key={item.id} {...item} />
                         ))
                      )}
-                  </MenuItems>
-               </MenuCategory>
+                  </MenuSectionItems>
+               </MenuSectionCategory>
 
-               <MenuCategory>
+               <MenuSectionCategory>
                   <h2>Merchandise</h2>
-                  <MenuItems>
-                     {menuList.map((menuListCategory) =>
+                  <MenuSectionItems>
+                     {menuList?.map((menuListCategory) =>
                         menuListCategory.merchandise.map((item) => (
-                           <MenuItem key={item.id} {...item} />
+                           <MenuSingleItem key={item.id} {...item} />
                         ))
                      )}
-                  </MenuItems>
-               </MenuCategory>
-            </MenuRight>
-         </MenuContainer>
-      </MenuWrapper>
+                  </MenuSectionItems>
+               </MenuSectionCategory>
+            </MenuSectionRight>
+         </MenuSectionContainer>
+      </MenuSectionWrapper>
    );
 };
 
-const MenuWrapper = styled.section`
+const MenuSectionWrapper = styled.section`
    display: flex;
    flex-direction: column;
    margin-top: 101px;
@@ -77,7 +77,7 @@ const MenuWrapper = styled.section`
    }
 `;
 
-const MenuContainer = styled.div`
+const MenuSectionContainer = styled.div`
    padding-left: 131px;
    margin-top: 101px;
    display: flex;
@@ -92,13 +92,13 @@ const MenuContainer = styled.div`
    }
 `;
 
-const MenuLeft = styled.div`
+const MenuSectionLeft = styled.div`
    @media (max-width: 768px) {
       display: none;
    }
 `;
 
-const MenuRight = styled.div`
+const MenuSectionRight = styled.div`
    flex: 1;
 
    h1 {
@@ -113,7 +113,7 @@ const MenuRight = styled.div`
    }
 `;
 
-const MenuCategory = styled.div`
+const MenuSectionCategory = styled.div`
    margin-bottom: 60px;
 
    h2 {
@@ -128,7 +128,7 @@ const MenuCategory = styled.div`
    }
 `;
 
-const MenuItems = styled.div`
+const MenuSectionItems = styled.div`
    border-top: 1px solid rgba(0, 0, 0, 0.1);
    display: flex;
    column-gap: 100px;
